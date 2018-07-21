@@ -2,6 +2,8 @@ build:
 	@docker-compose -p jenkins build
 run:
 	@docker-compose -p jenkins up -d nginx master proxy
+pull:
+	@docker-compose -p jenkins pull slave_image
 stop:
 	@docker-compose -p jenkins down
 clean-data: 
