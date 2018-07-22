@@ -20,6 +20,8 @@ services:
       - jenkins-net
   slave:
     build: ./jenkins-slave
+  android:
+    image: aabhassinha/android
   proxy:
     image: ehazlett/docker-proxy:latest
     command: -i
