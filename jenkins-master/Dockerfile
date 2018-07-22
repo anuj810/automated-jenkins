@@ -84,7 +84,7 @@ COPY --chown=jenkins docker_slave_template_config /var/jenkins_home/docker_slave
 COPY --chown=jenkins docker_cloud_config /var/jenkins_home/docker_cloud_config
 COPY --chown=jenkins change.sh /var/jenkins_home/change.sh
 COPY security.groovy /usr/share/jenkins/ref/init.groovy.d/security.groovy
-COPY docker_cloud.groovy /usr/share/jenkins/ref/init.groovy.d/docker_cloud.groovy
+#COPY docker_cloud.groovy /usr/share/jenkins/ref/init.groovy.d/docker_cloud.groovy
 
 
 RUN chmod +x /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groovy \
@@ -95,7 +95,6 @@ RUN chmod +x /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groovy \
 #    && chown ${user}:${user} /var/jenkins_home/change.sh \
     && chmod 755 /var/jenkins_home/change.sh \
     && chmod +x /usr/share/jenkins/ref/init.groovy.d/security.groovy \
-    && chmod +x /usr/share/jenkins/ref/init.groovy.d/docker_cloud.groovy \
     && chown -R ${user}:${user} /var/jenkins_home 
 
 
