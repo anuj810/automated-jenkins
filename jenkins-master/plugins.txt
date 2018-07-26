@@ -1,5 +1,6 @@
 matrix-auth
 jdk-tool
+active-directory
 jclouds-jenkins
 token-macro
 durable-task
