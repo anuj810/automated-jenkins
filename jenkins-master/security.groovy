@@ -7,24 +7,15 @@ import jenkins.security.s2m.AdminWhitelistRule
 
 def instance = Jenkins.getInstance()
 
-println "--> creating local user 'admin'"
+String domain = 'ad.local'
+String site = ''
+String server = '10.120.0.192:389, 10.120.18.63:389'
+String bindName = 'Admin'
+String bindPassword = 'Password@123'
+def hudsonActiveDirectoryRealm = new ActiveDirectorySecurityRealm(domain, site, bindName, bindPassword, server)
+instance.setSecurityRealm(hudsonActiveDirectoryRealm)
 
-def domains = new ArrayList<ActiveDirectoryDomain>();
-def securityRealm = new ActiveDirectorySecurityRealm(
-"ad.local",
-domains,
-"",
-"Admin",
-"{AQAAABAAAAAQIYYA1hwjj+EoKn/1NmTC5f8kOJKoxA8G19TK2/G0Oxg=}}",
-"10.120.0.192:389",
-GroupLookupStrategy.RECURSIVE,
-false,
-true,
-null)
-instance.setSecurityRealm(securityRealm)
-
-def strategy = new
-hudson.security.FullControlOnceLoggedInAuthorizationStrategy()
+def strategy = new hudson.security.FullControlOnceLoggedInAuthorizationStrategy()
 strategy.setAllowAnonymousRead(false)
 instance.setAuthorizationStrategy(strategy)
 
