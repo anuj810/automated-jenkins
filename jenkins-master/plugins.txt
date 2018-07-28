@@ -47,4 +47,4 @@ workflow-step-api
 workflow-support
 simple-theme-plugin
 jquery
-envinject
+envinject:1.90
