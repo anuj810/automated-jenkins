@@ -80,6 +80,8 @@ COPY jenkins-support /usr/local/bin/jenkins-support
 COPY plugins.sh /usr/local/bin/plugins.sh
 COPY jenkins.sh /usr/local/bin/jenkins.sh
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
+COPY --chown=jenkins hudson.plugins.ansicolor.AnsiColorBuildWrapper.xml /var/jenkins_home/hudson.plugins.ansicolor.AnsiColorBuildWrapper.xml
+COPY --chown=jenkins org.codefirst.SimpleThemeDecorator.xml /var/jenkins_home/org.codefirst.SimpleThemeDecorator.xml
 COPY --chown=jenkins docker_slave_template_config /var/jenkins_home/docker_slave_template_config
 COPY --chown=jenkins docker_cloud_config /var/jenkins_home/docker_cloud_config
 COPY --chown=jenkins change.sh /var/jenkins_home/change.sh
